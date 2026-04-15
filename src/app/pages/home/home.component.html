@@ -1,0 +1,82 @@
+<section class="hero-section py-5">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-5">
+        <p class="text-uppercase text-primary fw-semibold mb-2">E-commerce dashboard</p>
+        <h1 class="display-6 fw-bold mb-3">Role-based admin experience with polished product pages.</h1>
+        <p class="lead text-secondary mb-4">Build a storefront that looks premium while giving admins product control, order review, and user management.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a routerLink="/admin" class="btn btn-primary btn-lg">Go to admin</a>
+          <a routerLink="/login" class="btn btn-outline-secondary btn-lg">Login</a>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div id="homeCarousel" class="carousel slide rounded-4 overflow-hidden shadow-sm" data-bs-ride="carousel" data-bs-interval="4500">
+          <div class="carousel-inner">
+            <div class="carousel-item" *ngFor="let slide of slides; let i = index" [class.active]="i === 0">
+              <div class="carousel-card" [style.background-image]="'url(' + slide.image + ')'">
+                <div class="carousel-content text-white p-4 rounded-4">
+                  <span class="badge bg-white text-dark mb-3">Featured</span>
+                  <h3 class="h4 fw-bold">{{ slide.title }}</h3>
+                  <p class="mb-3">{{ slide.subtitle }}</p>
+                  <a [routerLink]="slide.buttonLink" class="btn btn-light btn-sm">{{ slide.buttonText }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let category of categories">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <div class="badge rounded-pill {{ category.color }} mb-3 px-3 py-2 text-white">{{ category.title }}</div>
+          <p class="mb-0 text-secondary">{{ category.subtitle }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <div class="row align-items-center gy-4">
+    <div class="col-lg-5">
+      <h2 class="h3 fw-bold mb-3">A modern dashboard built for every role.</h2>
+      <p class="text-secondary mb-4">Admins can update products, managers can view orders, and customers can shop from the same polished design language.</p>
+      <div class="d-grid gap-3">
+        <div class="p-4 bg-white rounded-4 shadow-sm border">
+          <h3 class="h6 mb-2">Fast product publishing</h3>
+          <p class="text-muted mb-0">Add listings with images, descriptions, pricing and inventory in one panel.</p>
+        </div>
+        <div class="p-4 bg-white rounded-4 shadow-sm border">
+          <h3 class="h6 mb-2">Secure user roles</h3>
+          <p class="text-muted mb-0">Protect admin pages while letting customers browse public content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="row g-3">
+        <div class="col-md-4" *ngFor="let feature of features">
+          <div class="card card-feature h-100 border-0 shadow-sm p-4 text-center">
+            <div class="display-6 mb-3">{{ feature.icon }}</div>
+            <h4 class="h6 fw-bold mb-2">{{ feature.title }}</h4>
+            <p class="text-secondary mb-0">{{ feature.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

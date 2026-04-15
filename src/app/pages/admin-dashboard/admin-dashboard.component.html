@@ -1,0 +1,67 @@
+<section class="admin-shell py-5">
+  <div class="container">
+    <div class="d-sm-flex justify-content-between align-items-start gap-3 mb-4">
+      <div>
+        <p class="text-uppercase text-primary fw-semibold mb-2">Admin dashboard</p>
+        <h1 class="h3 fw-bold mb-2">Manage products, orders and users.</h1>
+        <p class="text-secondary mb-0">A quick view of your store operations with simplified actions for admin workflows.</p>
+      </div>
+      <a routerLink="/" class="btn btn-outline-secondary align-self-start">Back to home</a>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-sm-6 col-xl-3" *ngFor="let stat of stats">
+        <div class="card rounded-4 shadow-sm border-0 h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="text-muted">{{ stat.label }}</div>
+              <div class="fs-3">{{ stat.icon }}</div>
+            </div>
+            <h2 class="h4 fw-bold mb-0 {{ stat.colorClass }}">{{ stat.value }}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="card rounded-4 shadow-sm border-0">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <h2 class="h5 mb-0">Latest product updates</h2>
+              <span class="badge bg-primary">Updated today</span>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-6" *ngFor="let product of products">
+                <div class="card product-card h-100 border-0">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <h3 class="h6 mb-1">{{ product.title }}</h3>
+                      <span class="badge bg-light text-dark">{{ product.badge }}</span>
+                    </div>
+                    <p class="text-secondary mb-2">{{ product.status }}</p>
+                    <strong>{{ product.price }}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="card rounded-4 shadow-sm border-0 h-100">
+          <div class="card-body">
+            <h2 class="h5 fw-bold mb-4">Admin quick actions</h2>
+            <div class="list-group list-group-flush">
+              <button class="list-group-item list-group-item-action rounded-4 mb-2">Add product</button>
+              <button class="list-group-item list-group-item-action rounded-4 mb-2">Review orders</button>
+              <button class="list-group-item list-group-item-action rounded-4 mb-2">Manage user roles</button>
+              <button class="list-group-item list-group-item-action rounded-4">View sales report</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

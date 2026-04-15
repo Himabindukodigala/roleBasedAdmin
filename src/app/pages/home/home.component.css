@@ -1,0 +1,46 @@
+.hero-section {
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.carousel-card {
+  min-height: 360px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 1.5rem;
+}
+
+.carousel-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 46, 93, 0.12) 0%, rgba(10, 46, 93, 0.75) 100%);
+  border-radius: 1.5rem;
+}
+
+.carousel-content {
+  position: relative;
+  z-index: 1;
+  max-width: 320px;
+}
+
+.card-feature {
+  min-height: 220px;
+}
+
+.card-feature h4 {
+  font-size: 1rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+@media (max-width: 767px) {
+  .carousel-card {
+    min-height: 280px;
+  }
+}

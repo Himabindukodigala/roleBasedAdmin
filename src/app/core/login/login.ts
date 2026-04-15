@@ -4,6 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { LoginRequest } from '../../Models/auth.service';
+import { UserRole } from '../../Models/user.moder';
 
 @Component({
   selector: 'app-login',
@@ -29,17 +30,21 @@ export class Login {
   }
 
   submit() {
-    if (this.form.invalid) return;
+  if (this.form.invalid) return;
 
-    this.authService.login(this.form.value as LoginRequest).subscribe({
-      next: (res) => {
-        if (res.user.role === 1) {
-          this.router.navigate(['/admin']);
-        } else {
-          this.router.navigate(['/']);
-        }
-      },
-      error: () => this.errorMessage = 'Invalid login credentials'
-    });
-  }
+  this.authService.login(this.form.value).subscribe({
+    next: (res) => {
+
+      // Role check
+      if (res.user.role === UserRole.Admin) {
+        this.router.navigate(['/admin/products']); // ✅ admin page
+      } else {
+        this.router.navigate(['/']); // ✅ user home
+      }
+
+    },
+    error: () => this.errorMessage = 'Invalid login credentials'
+  });
+}
+
 }

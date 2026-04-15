@@ -1,0 +1,58 @@
+<div class="container py-4">
+
+  <div class="d-flex justify-content-between mb-3">
+    <h3 class="fw-bold">Admin Dashboard</h3>
+    <a routerLink="/admin/products/new" class="btn btn-success">
+      + Add Product
+    </a>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle text-center">
+        
+        <thead class="table-dark">
+          <tr>
+            <th>Image</th>
+            <th>Item Name</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let p of products">
+            
+            <td>
+              <img [src]="p.imageUrl" width="60" height="60" style="object-fit:cover;">
+            </td>
+
+            <td>{{ p.name }}</td>
+
+            <td>{{ p.stock }}</td>
+
+            <td>₹ {{ p.price }}</td>
+
+            <td>
+              <a 
+                [routerLink]="['/admin/products/edit', p.id]" 
+                class="btn btn-sm btn-warning me-2">
+                Edit
+              </a>
+
+              <button 
+                class="btn btn-sm btn-danger"
+                (click)="deleteProduct(p.id)">
+                Delete
+              </button>
+            </td>
+
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+</div>

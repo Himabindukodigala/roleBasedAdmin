@@ -2,24 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-interface Slide {
-  title: string;
-  subtitle: string;
-  image: string;
-  buttonText: string;
-  buttonLink: string;
-}
-
-interface Feature {
-  title: string;
+interface ProductItem {
+  id: string;
+  name: string;
   description: string;
-  icon: string;
-}
-
-interface Category {
-  title: string;
-  subtitle: string;
-  color: string;
+  price: number;
+  imageUrl: string;
 }
 
 @Component({
@@ -30,63 +18,34 @@ interface Category {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  protected readonly slides: Slide[] = [
+  products: ProductItem[] = [
     {
-      title: 'Sell faster with an admin-led store',
-      subtitle: 'Manage inventory, approve orders and update products from a clean admin dashboard.',
-      image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80',
-      buttonText: 'Explore admin',
-      buttonLink: '/admin'
+      id: '1',
+      name: 'Wireless Headphones',
+      description: 'Premium audio with active noise cancellation.',
+      price: 129,
+      imageUrl: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Create memorable shopping experiences',
-      subtitle: 'A premium homepage with featured products, banners and fast checkout flows.',
-      image: 'https://images.unsplash.com/photo-1515125520145-94cbb87df3de?auto=format&fit=crop&w=1200&q=80',
-      buttonText: 'View collections',
-      buttonLink: '/'
+      id: '2',
+      name: 'Smart Watch',
+      description: 'Stay connected with fitness and notifications.',
+      price: 199,
+      imageUrl: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Role-based access for every team',
-      subtitle: 'Admin, manager and customer pages all work together in a single e-commerce experience.',
-      image: 'https://images.unsplash.com/photo-1580894732444-d6507b4f167f?auto=format&fit=crop&w=1200&q=80',
-      buttonText: 'Login now',
-      buttonLink: '/login'
-    }
-  ];
-
-  protected readonly categories: Category[] = [
-    {
-      title: 'Trending products',
-      subtitle: 'Top selling electronics, fashion and home goods.',
-      color: 'bg-primary'
+      id: '3',
+      name: 'Desk Lamp',
+      description: 'Modern lighting for your home office.',
+      price: 45,
+      imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80'
     },
     {
-      title: 'Inventory management',
-      subtitle: 'Quick access to stock, product names and variants.',
-      color: 'bg-success'
-    },
-    {
-      title: 'Order tracking',
-      subtitle: 'Review order flow from pending to delivered.',
-      color: 'bg-warning'
-    }
-  ];
-
-  protected readonly features: Feature[] = [
-    {
-      icon: '🛒',
-      title: 'Shop-ready cards',
-      description: 'Display products with crisp cards, purchase actions, and modern shop layout.'
-    },
-    {
-      icon: '📊',
-      title: 'Admin analytics',
-      description: 'Monitor orders, revenue and user activity with dashboard summary cards.'
-    },
-    {
-      icon: '🔐',
-      title: 'Secure access',
-      description: 'Separate admin and user sections to keep your product data safe.'
+      id: '4',
+      name: 'Leather Backpack',
+      description: 'Stylish carry for work and travel.',
+      price: 89,
+      imageUrl: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80'
     }
   ];
 }

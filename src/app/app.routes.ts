@@ -7,6 +7,8 @@ import { Admin} from './admin/admin';
 import { ProductForm } from './product-form/product-form';
 import { PermissionMatrixComponent } from './admin/permission-matrix/permission-matrix';
 
+import { Productspage } from './pages/home/productspage/productspage';
+
 
 export const routes: Routes = [
   { path: '', component: Login, pathMatch: 'full' },
@@ -15,6 +17,7 @@ export const routes: Routes = [
   { path: 'signup', component: Signup },
   {path: 'admin/access-roles',
 component: PermissionMatrixComponent},
+{path:'productspage', component:Productspage},
    { path: 'admin/products', component: Admin },
   { path: 'admin/products/new', component: ProductForm },
   { path: 'admin/products/edit/:id', component: ProductForm },

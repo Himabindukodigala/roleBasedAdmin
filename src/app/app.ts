@@ -8,7 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Navbar } from './shared/navbar/navbar/navbar';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule,Narbar,        // ✅ for *ngFor
+  imports: [RouterOutlet, CommonModule,Navbar,        // ✅ for *ngFor
     MatTableModule,        // ✅ for mat-table
     MatSlideToggleModule,  // ✅ for toggle
     MatCardModule],

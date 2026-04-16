@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" routerLink="/">ShopEase</a>
+
+    <!-- Mobile toggle -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar content -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+
+      <!-- Left menu -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products">Products</a>
+        </li>
+
+        <li class="nav-item" *ngIf="auth.isLoggedIn()">
+          <a class="nav-link" routerLink="/cart">Cart</a>
+        </li>
+
+        <li class="nav-item" *ngIf="auth.isLoggedIn()">
+          <a class="nav-link" routerLink="/my-orders">My Orders</a>
+        </li>
+
+        <!-- Admin dropdown -->
+        <li class="nav-item dropdown" *ngIf="auth.isAdmin()">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown">
+            Admin
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/admin/dashboard">Dashboard</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/admin/products">Manage Products</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/admin/users">Manage Users</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <!-- Right side -->
+      <div class="d-flex align-items-center gap-2">
+
+        <!-- Username -->
+        <span class="text-white small" *ngIf="user()">
+          Welcome, {{ user()?.username }}
+        </span>
+
+        <!-- NOT Logged In -->
+        <ng-container *ngIf="!auth.isLoggedIn()">
+          <div class="btn-group">
+            <a routerLink="/login" class="btn btn-outline-light btn-sm">
+              Login
+            </a>
+            <a routerLink="/signup" class="btn btn-outline-light btn-sm">
+              Sign Up
+            </a>
+          </div>
+        </ng-container>
+
+        <!-- Logged In -->
+        <button
+          *ngIf="auth.isLoggedIn()"
+          class="btn btn-warning btn-sm"
+          (click)="logout()">
+          Logout
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</nav>

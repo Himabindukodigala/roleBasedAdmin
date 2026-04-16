@@ -5,10 +5,10 @@ import { RouterOutlet } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
-
+import { Navbar } from './shared/navbar/navbar/navbar';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule,          // ✅ for *ngFor
+  imports: [RouterOutlet, CommonModule,Narbar,        // ✅ for *ngFor
     MatTableModule,        // ✅ for mat-table
     MatSlideToggleModule,  // ✅ for toggle
     MatCardModule],

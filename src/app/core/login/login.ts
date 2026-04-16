@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { LoginRequest } from '../../Models/auth.service';
+import { LoginRequest } from '../../Models/auth.model';
 import { UserRole } from '../../Models/user.moder';
 
 @Component({
@@ -15,9 +15,7 @@ import { UserRole } from '../../Models/user.moder';
 })
 export class Login {
   errorMessage = '';
-
   form: any;
-
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -37,9 +35,9 @@ export class Login {
 
       // Role check
       if (res.user.role === UserRole.Admin) {
-        this.router.navigate(['/admin/products']); // ✅ admin page
+        this.router.navigate(['/admin/products']); 
       } else {
-        this.router.navigate(['/']); // ✅ user home
+        this.router.navigate(['/']); 
       }
 
     },
